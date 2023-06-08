@@ -26,13 +26,6 @@ app.post("/send-message", async (req, res) => {
       to: destinationPhoneNumber,
     });
 
-    // Alternatively, send a WhatsApp message
-    await client.messages.create({
-      body: messageBody,
-      from: `whatsapp:${twilio_number}`,
-      to: `whatsapp:${destinationPhoneNumber}`,
-    });
-
     console.log("Twilio message sent successfully");
   } catch (error) {
     console.error("Failed to send the Twilio message:", error);
