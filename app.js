@@ -16,6 +16,7 @@ app.use(cors());
 
 // Handle the request to initiate the SOS
 app.post("/send-message", async (req, res) => {
+  const { messageBody } = req.body;
   const client = twilio(accountSid, authToken);
   try {
     // Send an SMS message
